@@ -1,4 +1,4 @@
-// * Imports and initialisations
+// ! Imports and initialisations
 
 require("dotenv").config();
 const Discord = require("discord.js");
@@ -9,7 +9,7 @@ const Client = new Discord.Client();
 
 let defaultValues = new Map();
 
-// * Message Template
+// ! Message Template
 
 const statusMessage = (response, server) => `
 **Status for "${server}"**
@@ -21,7 +21,7 @@ Player limit: \`${response.players.max}\`
 Minecraft Version: \`${response.server.name || "unavailable"}\`
 `;
 
-// * Functions
+// ! Functions
 
 const getMessageContent = (message) => message.content.split(" ");
 
@@ -93,7 +93,7 @@ const getMinecraftServerData = (hostname, channel) => {
         });
 };
 
-// * Events
+// ! Events
 
 Client.on("message", (message) => {
     let msg = getMessageContent(message);
@@ -109,5 +109,7 @@ Client.on("ready", () =>
     ============================
 `)
 );
+
+// ! Login
 
 Client.login(process.env.TOKEN);
